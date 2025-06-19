@@ -1,258 +1,308 @@
-import React from 'react';
-import { 
-  Zap, 
-  Target, 
-  RotateCcw, 
-  Link, 
-  Bell, 
+import {
+  Zap,
+  Target,
+  RotateCcw,
+  Link,
+  Bell,
   MessageSquare,
   ArrowRight,
-  ExternalLink,
   Smartphone,
-  Play
-} from 'lucide-react';
+  Play,
+  Shield,
+  Cpu,
+  Rocket,
+} from "lucide-react"
+import ASCIIText from "./components/ascii-text"
+import FuzzyText from "./components/fuzzy-text"
 
-function App() {
+export default function HomePage() {
   const features = [
     {
       icon: <Link className="w-8 h-8" />,
       title: "Phantom Wallet Connect",
-      description: "Deep Link + Encryption"
+      description: "Deep Link + Encryption",
+      color: "from-cyan-400 to-blue-500",
     },
     {
       icon: <Target className="w-8 h-8" />,
       title: "Limit Orders",
-      description: "with Trigger Pricing"
+      description: "with Trigger Pricing",
+      color: "from-purple-400 to-pink-500",
     },
     {
       icon: <RotateCcw className="w-8 h-8" />,
       title: "Recurring Orders",
-      description: "automated trading"
+      description: "automated trading",
+      color: "from-green-400 to-emerald-500",
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Instant Swaps",
-      description: "via Jupiter Ultra API"
+      description: "via Jupiter Ultra API",
+      color: "from-yellow-400 to-orange-500",
     },
     {
       icon: <Bell className="w-8 h-8" />,
       title: "Real-time Price Alerts",
-      description: "Never miss a move"
+      description: "Never miss a move",
+      color: "from-red-400 to-pink-500",
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
       title: "Everything inside Telegram",
-      description: "no accounts, no BS."
-    }
-  ];
+      description: "no accounts, no BS.",
+      color: "from-indigo-400 to-purple-500",
+    },
+  ]
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
-      {/* Faded Logo Background */}
-      <div 
-        className="fixed inset-0 opacity-5 bg-no-repeat bg-center bg-contain pointer-events-none z-0"
+      {/* Enhanced Background Logo */}
+      <div
+        className="fixed inset-0 opacity-15 bg-no-repeat bg-center bg-contain pointer-events-none z-0"
         style={{
-          backgroundImage: `url('/photo_2025-06-19_04-41-56 copy.jpg')`,
-          backgroundSize: '60%',
-          backgroundPosition: 'center 40%'
+          backgroundImage: `url('/jupidaddy-logo.jpg')`,
+          backgroundSize: "80%",
+          backgroundPosition: "center 30%",
+          filter: "brightness(1.2) contrast(1.1) saturate(1.3)",
         }}
       ></div>
-      
+
+      {/* Gradient Overlay for better text readability */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/90 pointer-events-none z-1"></div>
+
       {/* Content with relative positioning to appear above background */}
       <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Content */}
-              <div className="space-y-8">
-                {/* Aesthetic Logo */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-neon-green via-neon-purple to-neon-blue rounded-2xl flex items-center justify-center transform rotate-12">
-                      <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center transform -rotate-12">
-                        <span className="text-2xl font-mono font-bold bg-gradient-to-r from-neon-green to-neon-blue bg-clip-text text-transparent">J</span>
-                      </div>
-                    </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-neon-green rounded-full animate-pulse"></div>
-                  </div>
-                  <div className="h-12 w-px bg-gradient-to-b from-neon-green to-transparent"></div>
-                </div>
-
-                <div className="space-y-6">
-                  <h1 className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                    <span className="bg-gradient-to-r from-neon-green via-neon-purple to-neon-blue bg-clip-text text-transparent animate-gradient">
-                      jupidaddy
-                    </span>
-                  </h1>
-                  <h2 className="font-mono text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-200">
-                    Not your old trading bot on Telegram.
-                  </h2>
-                  <p className="text-lg sm:text-xl text-gray-400 font-sans max-w-2xl">
-                    Powered by NLP, Phantom wallet, and Jupiter Ultra. Trade like a pro — instantly.
-                  </p>
-                </div>
-                
-                {/* Quick CTA */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="tg://resolve?domain=jupidaddy_bot"
-                    className="group relative px-8 py-4 bg-gradient-to-r from-neon-green to-neon-blue rounded-lg font-mono font-semibold text-black transition-all duration-300 hover:scale-105 animate-pulse-glow"
-                  >
-                    <span className="flex items-center gap-2">
-                      Launch Bot
-                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </a>
-                </div>
+        {/* Hero Section with ASCII Title */}
+        <section className="relative py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full">
+            <div className="text-center space-y-12">
+              {/* ASCII JUPIDADDY Title */}
+              <div className="relative h-48 w-full">
+                <ASCIIText
+                  text="JUPIDADDY"
+                  asciiFontSize={6}
+                  textFontSize={120}
+                  textColor="#00ff88"
+                  planeBaseHeight={6}
+                  enableWaves={true}
+                />
               </div>
-              
-              {/* Right Side - Mobile Video Placeholder */}
-              <div className="relative">
-                <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-neon-green/50 transition-colors duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-br from-neon-green/10 to-neon-purple/10 rounded-2xl"></div>
-                  <div className="relative flex flex-col items-center justify-center space-y-6 py-16">
-                    <div className="relative">
-                      <div className="w-20 h-20 bg-neon-green/20 rounded-2xl flex items-center justify-center border-2 border-neon-green/30">
-                        <Smartphone className="w-10 h-10 text-neon-green" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-green rounded-full flex items-center justify-center">
-                        <Play className="w-3 h-3 text-black ml-0.5" />
-                      </div>
-                    </div>
-                    <div className="text-center space-y-2">
-                      <h3 className="font-mono text-xl font-semibold">Mobile Demo</h3>
-                      <p className="text-gray-400">Drop your recorded video here</p>
-                    </div>
-                  </div>
+
+              {/* Fuzzy Subtitle */}
+              <div className="relative h-24 flex items-center justify-center">
+                <FuzzyText
+                  fontSize="clamp(1.5rem, 4vw, 3rem)"
+                  fontWeight={600}
+                  color="#888"
+                  baseIntensity={0.3}
+                  hoverIntensity={0.8}
+                >
+                  Not your old Telegram bot
+                </FuzzyText>
+              </div>
+
+              {/* Main Description */}
+              <div className="space-y-8 max-w-4xl mx-auto">
+                <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed">
+                  Powered by <span className="text-cyan-400 font-semibold">NLP</span>,
+                  <span className="text-purple-400 font-semibold"> Phantom wallet</span>, and
+                  <span className="text-green-400 font-semibold"> Jupiter Ultra</span>. Trade like a pro — instantly.
+                </p>
+
+                {/* CTA Button */}
+                <div className="pt-8">
+                  <a
+                    href="tg://resolve?domain=jupidaddy_bot"
+                    className="group relative inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-cyan-400 via-green-400 to-blue-500 rounded-2xl font-mono font-bold text-xl text-black transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/25"
+                  >
+                    <span className="flex items-center gap-3">
+                      🚀 Launch Bot
+                      <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-green-400 to-blue-500 rounded-2xl blur-xl opacity-30 -z-10 animate-pulse"></div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Features Section - Aesthetic Layout */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        {/* Features Section - Redesigned Layout */}
+        <section className="py-32 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Features that matter
                 </span>
               </h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
                 Everything you need to trade like a professional, right inside Telegram
               </p>
             </div>
-            
-            {/* Asymmetric Layout */}
-            <div className="space-y-8">
-              {/* First Row - 2 cards */}
-              <div className="grid md:grid-cols-2 gap-8">
-                {features.slice(0, 2).map((feature, index) => (
-                  <div 
-                    key={index}
-                    className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-neon-green/5 to-neon-purple/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative space-y-4">
-                      <div className="w-16 h-16 bg-neon-green/20 rounded-lg flex items-center justify-center text-neon-green">
-                        {feature.icon}
-                      </div>
-                      <div>
-                        <h3 className="font-mono font-semibold text-xl mb-2">{feature.title}</h3>
-                        <p className="text-gray-400 font-sans">{feature.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
-              {/* Second Row - 1 centered card */}
-              <div className="flex justify-center">
-                <div className="w-full max-w-md">
-                  <div className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-br from-neon-green/5 to-neon-purple/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative space-y-4 text-center">
-                      <div className="w-16 h-16 bg-neon-green/20 rounded-lg flex items-center justify-center text-neon-green mx-auto">
-                        {features[2].icon}
-                      </div>
-                      <div>
-                        <h3 className="font-mono font-semibold text-xl mb-2">{features[2].title}</h3>
-                        <p className="text-gray-400 font-sans">{features[2].description}</p>
-                      </div>
+            {/* Hexagonal/Organic Layout */}
+            <div className="relative">
+              {/* Central Hub */}
+              <div className="flex justify-center mb-16">
+                <div className="relative">
+                  <div className="w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-purple-500/20 rounded-full flex items-center justify-center border-2 border-cyan-400/30 backdrop-blur-sm">
+                    <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+                      <Cpu className="w-10 h-10 text-black" />
                     </div>
                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-purple-500/10 rounded-full animate-pulse"></div>
                 </div>
               </div>
 
-              {/* Third Row - 3 cards */}
-              <div className="grid md:grid-cols-3 gap-8">
-                {features.slice(3).map((feature, index) => (
-                  <div 
-                    key={index + 3}
-                    className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-gray-700 hover:border-neon-green/50 transition-all duration-300"
+              {/* Feature Cards in Organic Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className={`group relative transform transition-all duration-500 hover:scale-105 ${
+                      index % 2 === 0 ? "lg:translate-y-8" : "lg:-translate-y-8"
+                    }`}
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-neon-green/5 to-neon-purple/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative space-y-4">
-                      <div className="w-12 h-12 bg-neon-green/20 rounded-lg flex items-center justify-center text-neon-green">
-                        {feature.icon}
+                    <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 overflow-hidden">
+                      {/* Animated Background Gradient */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl`}
+                      ></div>
+
+                      {/* Floating Icon */}
+                      <div className="relative mb-6">
+                        <div
+                          className={`w-20 h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center text-black transform group-hover:rotate-12 transition-transform duration-300`}
+                        >
+                          {feature.icon}
+                        </div>
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300`}
+                        ></div>
                       </div>
-                      <div>
-                        <h3 className="font-mono font-semibold text-lg mb-2">{feature.title}</h3>
-                        <p className="text-gray-400 text-sm font-sans">{feature.description}</p>
+
+                      {/* Content */}
+                      <div className="relative space-y-4">
+                        <h3 className="font-mono font-bold text-xl text-white group-hover:text-cyan-300 transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-400 font-sans leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                          {feature.description}
+                        </p>
                       </div>
+
+                      {/* Connecting Lines (visible on larger screens) */}
+                      <div className="hidden lg:block absolute -top-4 -left-4 w-8 h-8 border-l-2 border-t-2 border-cyan-400/30 rounded-tl-lg"></div>
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Video Section */}
+        <section className="py-32 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-mono text-4xl sm:text-5xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
+                  See it in action
+                </span>
+              </h2>
+              <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+                Watch how easy it is to trade directly from Telegram
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm rounded-3xl p-12 border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-green-400/5 rounded-3xl"></div>
+                <div className="relative flex flex-col items-center justify-center space-y-8 py-20">
+                  <div className="relative">
+                    <div className="w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-green-400/20 rounded-3xl flex items-center justify-center border-2 border-cyan-400/30">
+                      <Smartphone className="w-16 h-16 text-cyan-400" />
+                    </div>
+                    <div className="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-br from-green-400 to-cyan-400 rounded-full flex items-center justify-center animate-bounce">
+                      <Play className="w-6 h-6 text-black ml-1" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-green-400/10 rounded-3xl animate-pulse"></div>
+                  </div>
+                  <div className="text-center space-y-4">
+                    <h3 className="font-mono text-2xl font-bold text-white">Mobile Demo</h3>
+                    <p className="text-gray-400 text-lg">Drop your recorded video here</p>
+                    <p className="text-sm text-gray-500">Coming soon...</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 border border-gray-700 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-green/10 via-neon-purple/10 to-neon-blue/10"></div>
-              <div className="relative space-y-8">
-                <div className="space-y-4">
-                  <h2 className="font-mono text-3xl sm:text-4xl font-bold">
-                    Connect wallet. Place a trade.
+        <section className="py-32 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm rounded-3xl p-16 border border-gray-700/50 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-purple-400/10 to-green-400/10"></div>
+              <div className="relative space-y-10">
+                <div className="space-y-6">
+                  <h2 className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                    Connect wallet. <br />
+                    <span className="bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+                      Place a trade.
+                    </span>
                   </h2>
-                  <h3 className="font-mono text-2xl sm:text-3xl font-bold text-neon-green">
-                    That's it.
-                  </h3>
-                  <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                  <h3 className="font-mono text-3xl sm:text-4xl font-bold text-green-400">That's it.</h3>
+                  <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
                     No complex interfaces, no endless forms. Just pure trading power in your pocket.
                   </p>
                 </div>
-                
-                <a 
-                  href="tg://resolve?domain=jupidaddy_bot"
-                  className="group relative inline-block px-12 py-6 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl font-mono font-bold text-lg text-black transition-all duration-300 hover:scale-110 animate-pulse-glow"
-                >
-                  <span className="flex items-center gap-3">
-                    👇 Launch Bot
-                    <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-                  </span>
-                </a>
+
+                <div className="pt-8">
+                  <a
+                    href="tg://resolve?domain=jupidaddy_bot"
+                    className="group relative inline-flex items-center gap-4 px-16 py-8 bg-gradient-to-r from-cyan-400 via-green-400 to-blue-500 rounded-2xl font-mono font-bold text-2xl text-black transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/25"
+                  >
+                    <span className="flex items-center gap-4">
+                      👇 Launch Bot
+                      <ArrowRight className="w-8 h-8 transition-transform group-hover:translate-x-3" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-green-400 to-blue-500 rounded-2xl blur-2xl opacity-40 -z-10 animate-pulse"></div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-gray-600 text-sm font-sans">
-              Built on Solana • Powered by Jupiter • Made with ❤️ by degens
-            </p>
+        <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center space-y-6">
+              <div className="flex items-center justify-center gap-8 text-gray-500">
+                <div className="flex items-center gap-2">
+                  <Rocket className="w-5 h-5" />
+                  <span>Built on Solana</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  <span>Powered by Jupiter</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  <span>Made with ❤️ by degens</span>
+                </div>
+              </div>
+              <p className="text-gray-600 text-sm">© 2025 Jupidaddy. Trade responsibly.</p>
+            </div>
           </div>
         </footer>
       </div>
     </div>
-  );
+  )
 }
-
-export default App;
