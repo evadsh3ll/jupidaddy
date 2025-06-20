@@ -78,11 +78,11 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto w-full">
             <div className="text-center space-y-12">
               {/* ASCII JUPIDADDY Title */}
-              <div className="relative h-48 w-full">
+              <div className="relative h-64 w-full">
                 <ASCIIText
                   text="JUPIDADDY"
-                  asciiFontSize={6}
-                  textFontSize={120}
+                  asciiFontSize={1}
+                  textFontSize={300}
                   textColor="#00ff88"
                   planeBaseHeight={6}
                   enableWaves={true}
@@ -95,8 +95,8 @@ export default function HomePage() {
                   fontSize="clamp(1.5rem, 4vw, 3rem)"
                   fontWeight={600}
                   color="#888"
-                  baseIntensity={0.3}
-                  hoverIntensity={0.8}
+                  baseIntensity={0.1}
+                  hoverIntensity={0.4}
                 >
                   Not your old Telegram bot
                 </FuzzyText>
